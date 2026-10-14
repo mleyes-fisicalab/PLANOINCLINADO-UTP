@@ -1,0 +1,257 @@
+===============================================================================
+CUADERNO INTERACTIVO DE LABORATORIO
+Universidad Tecnológica de Pereira · Facultad de Ciencias Básicas
+Departamento de Física · Laboratorio de Física I
+Práctica 6 · Plano inclinado
+===============================================================================
+
+CÓMO SE ABRE
+-------------------------------------------------------------------------------
+Haz doble clic en «index.html». Se abre en cualquier navegador moderno
+(Chrome, Edge, Firefox, Safari), sin instalar nada y sin servidor.
+
+Mantén la carpeta completa: el cuaderno necesita las subcarpetas css, js e
+imagenesUTP que están a su lado. Si mueves solo el index.html, se verá sin
+estilos, sin portada y sin las figuras del montaje.
+
+Con conexión a internet las tipografías se cargan desde Google Fonts. Sin
+conexión el cuaderno funciona igual: el navegador sustituye las tipografías por
+las del sistema y nada más cambia.
+
+
+ESTRUCTURA DE LA CARPETA
+-------------------------------------------------------------------------------
+index.html .................. estructura, barra superior y navegación
+css/estilos.css ............. toda la apariencia, incluida la hoja de impresión
+js/datos.js ................. contenido académico: textos, glosario, datos de
+                              referencia y constantes de la práctica
+js/paginas.js ............... construcción de las 22 páginas y registro de los
+                              campos con sus respuestas
+js/instrumentos.js .......... diagrama de cuerpo libre, montaje interactivo,
+                              simulador del carril y toda la cadena de cálculo
+js/app.js ................... navegación, guardado, autocompletado, verificación
+imagenesUTP/ ................ portada, rosa de los vientos y las dos figuras
+LEEME.txt ................... este archivo
+
+
+LAS 22 SECCIONES
+-------------------------------------------------------------------------------
+00  Portada                            11  Tabla 1 · Medidas del montaje
+01  Índice                             12  Tabla 2 · Primera inclinación
+02  Presentación de la práctica        13  Tabla 3 · Segunda inclinación
+03  Objetivos                          14  Tablas 4 y 5 · Análisis
+04  Materiales e instrumentos          15  Gráficas F_g frente a m · Tabla 6
+05  Fundamento físico                  16  La gravedad obtenida
+06  Montaje experimental               17  Simulador del plano inclinado
+07  Procedimiento                      18  Preguntas
+08  Encabezado del informe             19  Conclusiones
+09  Marco teórico                      20  Glosario
+10  Preinforme · Predicciones          21  Referencias
+
+
+LOS BOTONES DE LA BARRA SUPERIOR
+-------------------------------------------------------------------------------
+Índice ............. abre el cajón lateral con las 22 secciones.
+Autocompletar todo . rellena de una vez TODOS los campos de TODAS las tablas y
+                     de todas las páginas del cuaderno con el conjunto de datos
+                     de referencia. Pide confirmación antes de sobrescribir.
+Verificar .......... contrasta con la referencia lo que haya escrito y marca en
+                     verde o en rojo, con una nota explicativa bajo cada campo.
+Imprimir ........... genera el PDF de entrega con las 22 páginas seguidas.
+Reiniciar .......... borra todo lo escrito en este navegador.
+
+Cada página de trabajo repite esas acciones en pequeño, limitadas a esa página:
+«Autocompletar esta página», «Verificar» y «Limpiar».
+
+También se puede navegar con las flechas ← y → del teclado.
+
+
+QUÉ SE VERIFICA Y QUÉ NO
+-------------------------------------------------------------------------------
+El grupo mide su propio carril, su propia bandera y sus propias masas, de modo
+que las casillas de las Tablas 1, 2 y 3 no tienen una respuesta correcta: son
+datos suyos. El cuaderno distingue por eso tres clases de campo.
+
+1. DATOS DEL ESTUDIANTE (geometría del montaje, masas y tiempos)
+   No se verifican. El botón «Autocompletar» sí los rellena, con el conjunto de
+   datos de referencia que se describe más abajo, para que el docente pueda
+   proyectar un ejemplo completo o para que el estudiante compruebe cómo debería
+   comportarse el cuaderno.
+
+2. RESPUESTAS CON VALOR CORRECTO (las cinco del preinforme)
+   Son los únicos campos que «Verificar» califica. Admiten coma o punto decimal
+   y tienen tolerancia. Recorren la cadena entera de la práctica:
+     1. sen θ con h_f = 0,0450, h₀ = 0,0150 y d = 1,200 ... 0,0250   (± 0,0012)
+     2. Ángulo correspondiente ......................... 1,43°     (± 0,06)
+     3. L corregida si la bandera mide 0,0524 m ........ 0,0500 m  (± 0,0006)
+     4. v₁ con esa L y t̄₁ = 0,1300 s ................... 0,3846 m/s (± 0,006)
+     5. a con v₁, v₂ y D = 0,500 m ..................... 0,2439 m/s² (± 0,006)
+   Al verificar, cada campo muestra debajo la nota con el procedimiento, acierte
+   o no.
+
+3. CAMPOS PERSONALES (docente, grupo, estudiantes, códigos y la casilla NOTA)
+   Nunca se autocompletan ni se verifican. La casilla NOTA reproduce la del
+   formato impreso del informe y queda reservada al docente.
+
+Los textos largos —resumen, marco teórico, las cuatro preguntas y las tres
+conclusiones— no se califican: el autocompletado carga un texto modelo que
+muestra la profundidad y la estructura esperadas, no para copiarlo.
+
+
+EL CONJUNTO DE DATOS DE REFERENCIA
+-------------------------------------------------------------------------------
+El botón «Autocompletar» no sortea números al azar: carga siempre el mismo
+conjunto de datos, de modo que el docente que lo proyecta en clase y el
+estudiante que lo abre en su casa obtienen exactamente los mismos resultados.
+
+Se construye a partir de un montaje verosímil: carril de 1,200 m, altura
+horizontal de 0,0150 m, fotoceldas separadas 0,500 m, bandera de 0,0524 m medida
+y dos inclinaciones de 0,0450 m y 0,0750 m, que dan senos de 0,025 y 0,050. Para
+cada una se calcula la aceleración teórica a = g·sen θ con g = 9,776 m/s² —el
+valor local estimado para Pereira— y de ahí los tiempos que marcarían las dos
+fotoceldas suponiendo que el carro se suelta 0,300 m antes de la primera. A esos
+tiempos se les aplica una desviación fija de unas pocas milésimas, escrita una a
+una en js/datos.js (constantes DESV_T1 y DESV_T2).
+
+Con esos datos el cuaderno obtiene:
+
+    Tabla 4 (sen θ = 0,025) ... F = 9,743 · m + 0,008   R² = 0,99983
+    Tabla 5 (sen θ = 0,050) ... F = 9,757 · m + 0,002   R² = 0,99994
+    promedio de las dos ................................. 9,750 m/s²
+    error frente a 9,80 m/s² ............................ 0,51 %
+
+Dos cosas conviene mirar en ese resultado. Las dos inclinaciones, que difieren
+en un factor dos, dan valores de g que se apartan entre sí un 0,14 %: es una
+comprobación interna que no depende de ningún valor tabulado. Y dentro de cada
+tabla, la fila de la aceleración varía menos de medio por ciento entre las cinco
+masas, como corresponde a una magnitud que no depende de la masa.
+
+
+CÓMO CALCULA EL CUADERNO
+-------------------------------------------------------------------------------
+Corrección de la bandera
+    L = L_medida − 0,0024 m. El cuaderno hace la resta y muestra el valor
+    corregido en la Tabla 1; es el que entra en las dos velocidades.
+
+Seno del ángulo
+    sen θ = (h_f − h₀)/d, calculado por separado para cada inclinación con su
+    propia h_f. Bajo cada tabla se muestra el seno, el ángulo en grados y la
+    aceleración que cabría esperar.
+
+Promedios y velocidades
+    t̄ = (t₁ + t₂ + t₃)/3 para cada fotocelda, y después v = L/t̄. El cuadro bajo
+    cada masa muestra el cálculo paso a paso.
+
+Aceleración, fuerza y gravedad
+    a = (v₂² − v₁²)/(2D),  F_g = m·a/sen θ,  g = F_g/m. Son las fórmulas tal
+    como las da la guía, aplicadas columna a columna en las Tablas 4 y 5.
+
+Ajuste de los datos
+    Mínimos cuadrados, programado en el propio cuaderno, sin bibliotecas
+    externas. Hay dos modelos, elegibles en la página 15:
+      · F = g·m + b    recta general; es la que entrega la línea de tendencia de
+                       una hoja de cálculo y la que pide la guía
+      · F = g·m        recta por el origen, que impone que un cuerpo sin masa no
+                       pese
+    En ambos casos se calcula el coeficiente de determinación R².
+
+Toda la cadena se recalcula sola: basta corregir un tiempo en cualquier tabla
+para que los promedios, las velocidades, las Tablas 4 y 5, las gráficas, las
+ecuaciones y el valor de g se actualicen.
+
+
+GUARDADO
+-------------------------------------------------------------------------------
+El cuaderno guarda lo escrito en el almacenamiento local del navegador, cada vez
+que se escribe. Eso significa que:
+
+  · se recupera al volver a abrir el archivo en el mismo navegador y equipo;
+  · NO viaja con el archivo: si se copia la carpeta a otro computador, el
+    cuaderno llega en blanco;
+  · el modo incógnito y el borrado de datos de navegación lo eliminan.
+
+Para entregar, usa «Imprimir» y guarda como PDF. Al imprimir, el cuaderno
+despliega el glosario completo y expande las respuestas largas, de modo que en
+el PDF aparece todo el texto escrito y no solo la parte visible en pantalla.
+
+
+ACCESIBILIDAD
+-------------------------------------------------------------------------------
+  · Navegación completa por teclado, incluidos los puntos sensibles del montaje
+    (Tab para llegar, Enter o espacio para activar).
+  · Cada campo tiene su etiqueta para lectores de pantalla.
+  · Los avisos se anuncian mediante regiones «live».
+  · Si el sistema tiene activada la reducción de movimiento, el carro del
+    simulador no se anima: muestra directamente el resultado final con los dos
+    tiempos marcados.
+
+
+SOBRE EL DOCUMENTO DE PARTIDA
+-------------------------------------------------------------------------------
+El cuaderno se construyó sobre el informe «Plano inclinado» del Departamento de
+Física. Conviene dejar constancia de lo que se encontró en él.
+
+1. NUMERACIÓN DEL PROCEDIMIENTO. Los pasos 1 y 2 están en una lista y los pasos
+   3 a 7 en otra, de modo que el documento tiene dos puntos numerados «1» y «2».
+   El cuaderno los reorganiza en siete pasos consecutivos sin repeticiones.
+
+2. DÓNDE SE ANOTA D. El paso 2 pide medir «D y h_f», pero la casilla que
+   aparece junto a la Figura 2 es solo la de D; h_f se anota después, en el
+   encabezado de cada una de las Tablas 2 y 3, que es donde corresponde porque
+   hay una altura distinta por inclinación. El cuaderno recoge D en la Tabla 1,
+   junto al resto de la geometría, y h_f en cada tabla de tiempos.
+
+3. LA CORRECCIÓN DE LA BANDERA. El documento la menciona una sola vez, en el
+   párrafo que sigue a la Tabla 1, y no vuelve a recordarla. Como el ancho
+   corregido entra en las dos velocidades y estas al cuadrado en la aceleración,
+   es una de las fuentes de error más probables: el cuaderno separa el ancho
+   medido del ancho corregido, hace la resta a la vista y dedica una de las
+   cinco preguntas del preinforme a ese paso.
+
+4. SUBÍNDICES ESCRITOS COMO SUPERÍNDICES. En las tablas del documento las masas
+   y los tiempos aparecen como m¹, m², t¹, t², con numerales voladitos, cuando
+   se trata de índices y no de potencias. Se conserva esa notación en los
+   rótulos para que el estudiante reconozca las casillas, pero conviene saber
+   que t² no es «t al cuadrado».
+
+5. EL PUNTO DE SUELTA. El documento no pide registrar desde dónde se suelta el
+   carro, y con razón: la fórmula a = (v₂² − v₁²)/(2D) no lo necesita. Aun así
+   conviene soltarlo siempre desde el mismo punto para que los tres lanzamientos
+   de una fila sean comparables; el cuaderno lo advierte en el procedimiento.
+
+6. LAS FIGURAS. Las dos imágenes del montaje son las del propio documento,
+   extraídas sin retocar y solo reescaladas. Se emplean como Figuras 1 y 2 en la
+   página del montaje, junto a un esquema interactivo propio.
+
+7. LA PORTADA. Se reescribió sobre la portada de otra práctica, reconstruyendo
+   el papel y la retícula que había bajo el texto anterior, de modo que se
+   conservan el logotipo, la filigrana de la rosa de los vientos y el resto del
+   diseño. La ilustración sigue siendo la de un espectrómetro de masas, que
+   pertenece a electromagnetismo y no a mecánica: si en algún momento se dispone
+   de una ilustración adecuada, basta sustituir el archivo
+   imagenesUTP/portada.png por otro del mismo tamaño.
+
+
+COMPROBACIONES REALIZADAS
+-------------------------------------------------------------------------------
+Antes de la entrega se ejecutó un banco de 124 comprobaciones automáticas sobre
+el cuaderno cargado en un navegador simulado. Se verificaron, entre otras cosas:
+
+  · que las 22 páginas se construyen, con encabezado, pie e índice completos;
+  · que los 111 campos tienen identificador único y están registrados;
+  · que «Autocompletar todo» completa la Tabla 1, las dos tablas de tiempos y,
+    en una segunda pasada, las casillas derivadas que dependen de ellas;
+  · que los campos personales y la casilla NOTA quedan siempre en blanco;
+  · que las cinco claves del preinforme coinciden con el cálculo físico;
+  · que la cadena de cálculo cumple, columna a columna, v₁ = L/t̄₁,
+    a = (v₂² − v₁²)/2D, F_g = m·a/sen θ y g = F_g/m, y que t̄₂ sale menor que t̄₁;
+  · que la segunda inclinación duplica el seno de la primera;
+  · que el conjunto de referencia devuelve g = 9,743 y 9,757 m/s², a menos del
+    2 % del valor con el que se generaron los datos, con R² por encima de 0,9998
+    y errores inferiores al 1 % frente a 9,80 m/s²;
+  · que las Tablas 4 y 5 tienen las siete filas y las cinco columnas del informe;
+  · que el cambio al ajuste por el origen conserva el valor de g;
+  · que el diagrama de cuerpo libre, el montaje, el simulador, el glosario, la
+    navegación, el guardado, la verificación y la impresión funcionan.
+
+===============================================================================
